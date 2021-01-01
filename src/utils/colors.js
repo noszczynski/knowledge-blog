@@ -1,10 +1,10 @@
 const darkThemeColors = {
     primary: '#ffffff',
-    backgroundPrimary: '#0e455a',
+    backgroundPrimary: '#051D2C',
     secondary: '#ababab',
-    backgroundSecondary: '#0e455a',
+    backgroundSecondary: '#051D2C',
     accent: '#f8c1b8',
-    backgroundAccent: '#0e455a',
+    backgroundAccent: '#051D2C',
 }
 
 const lightThemeColors = {

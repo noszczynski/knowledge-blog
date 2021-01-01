@@ -2,17 +2,23 @@ import React from 'react'
 import Global from '../utils/globalStyle'
 import Container from './Container'
 import styled from 'styled-components'
+import { Navigation } from '../components'
 
 const StyledWrapper = styled.main``
 
 const LayoutComponent = ({ setThemeMode, children }) => {
+    console.log(setThemeMode)
+
     return (
-        <Container>
-            <StyledWrapper>
-                <Global />
-                {children}
-            </StyledWrapper>
-        </Container>
+        <>
+            <Navigation />
+            <Container>
+                <StyledWrapper>
+                    <Global />
+                    {children}
+                </StyledWrapper>
+            </Container>
+        </>
     )
 }
 

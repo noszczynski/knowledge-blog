@@ -10,7 +10,7 @@ const Global = createGlobalStyle`
     padding: 0;
     background-color: ${({ theme }) => theme.color.backgroundPrimary};
     color: ${({ theme }) => theme.color.primary};
-    font-family: 'Lato', serif;
+    font-family: 'Roboto', serif;
   }
   
   button, input {

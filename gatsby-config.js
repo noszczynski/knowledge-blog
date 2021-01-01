@@ -36,12 +36,7 @@ module.exports = {
         {
             resolve: `gatsby-source-datocms`,
             options: {
-                apiToken: `2af4c30a40ae8710849bb0a6b6519f`,
-                environment: `master`,
-                disableLiveReload: false,
-                localeFallbacks: {
-                    it: ['pl', 'en'],
-                },
+                apiToken: `e37cb059f7c7da34cdb28b12881ac1`,
             },
         },
         {
@@ -60,7 +55,10 @@ module.exports = {
         {
             resolve: `gatsby-plugin-google-fonts`,
             options: {
-                fonts: [`Lato`, `source sans pro\:100,300,400,700`],
+                fonts: [
+                    `Montserrat\:300,400,500,700,900`,
+                    `Roboto\:300,400,500,700,900`,
+                ],
                 display: 'swap',
             },
         },

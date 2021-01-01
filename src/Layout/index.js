@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import LayoutComponent from './Component'
 import theme from '../utils/theme'
 import { darkThemeColors, lightThemeColors } from '../utils/colors'
+import { WindowProvider } from '../utils/windowContext'
 
 const THEMES = {
     DARK: 'DARK',
@@ -26,9 +27,11 @@ const Layout = ({ children }) => {
 
     return themeObj ? (
         <ThemeProvider theme={themeObj}>
-            <LayoutComponent setThemeMode={setThemeMode}>
-                {children}
-            </LayoutComponent>
+            <WindowProvider>
+                <LayoutComponent setThemeMode={setThemeMode}>
+                    {children}
+                </LayoutComponent>
+            </WindowProvider>
         </ThemeProvider>
     ) : (
         <p>No theme object set</p>
