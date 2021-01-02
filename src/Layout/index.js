@@ -5,36 +5,59 @@ import LayoutComponent from './Component'
 import theme from '../utils/theme'
 import { darkThemeColors, lightThemeColors } from '../utils/colors'
 import { WindowProvider } from '../utils/windowContext'
+import themeStorage from '../utils/themeStorage'
+import themeVariantStorage from '../utils/themeVariantStorage'
 
 const THEMES = {
     DARK: 'DARK',
     LIGHT: 'LIGHT',
 }
 
+const handleMergeTheme = (theme, obj) => {
+    return { ...theme, color: { ...theme.color, ...obj } }
+}
+
 const Layout = ({ children }) => {
-    const [themeMode, setThemeMode] = useState(THEMES.DARK)
-    const [themeObj, setThemeObj] = useState(null)
+    const initialTheme = themeStorage.is()
+        ? handleMergeTheme(theme, themeStorage.get())
+        : theme
+    const [themeMode, setThemeMode] = useState(themeVariantStorage.get())
+    const [themeObj, setThemeObj] = useState(initialTheme)
+
+    const getTheme = theme => {
+        switch (theme) {
+            case THEMES.DARK:
+                return darkThemeColors
+            case THEMES.LIGHT:
+                return lightThemeColors
+            default:
+                return darkThemeColors
+        }
+    }
 
     useEffect(() => {
-        const t = themeMode === THEMES.DARK ? darkThemeColors : lightThemeColors
-        const obj = Object.assign(
-            {},
-            { ...theme, color: { ...theme.color, ...t } }
-        )
+        if (themeVariantStorage.is() && themeStorage.is()) {
+            const storageTheme = themeStorage.get()
+            setThemeObj(storageTheme)
+        } else {
+            const newTheme = handleMergeTheme(theme, getTheme())
 
-        setThemeObj(obj)
+            themeVariantStorage.set(THEMES.DARK)
+            themeStorage.set(newTheme)
+            setThemeObj(newTheme)
+        }
     }, [])
 
-    return themeObj ? (
-        <ThemeProvider theme={themeObj}>
-            <WindowProvider>
-                <LayoutComponent setThemeMode={setThemeMode}>
-                    {children}
-                </LayoutComponent>
-            </WindowProvider>
-        </ThemeProvider>
-    ) : (
-        <p>No theme object set</p>
+    return (
+        themeObj && (
+            <ThemeProvider theme={themeObj}>
+                <WindowProvider>
+                    <LayoutComponent setThemeMode={setThemeMode}>
+                        {children}
+                    </LayoutComponent>
+                </WindowProvider>
+            </ThemeProvider>
+        )
     )
 }
 

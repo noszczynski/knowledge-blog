@@ -18,8 +18,6 @@ const StyledWrapper = styled.nav`
 
     ${({ theme }) => theme.mq.tabletS} {
         grid-column-gap: 1.5rem;
-        padding-left: 3rem;
-        padding-right: 3rem;
         padding-top: 4rem;
 
         div:last-child {
@@ -89,7 +87,6 @@ const StyledMobileSocialItem = styled.li`
 `
 
 const Navigation = () => {
-    const { width } = useWindow()
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleOpen = () => {
@@ -110,8 +107,6 @@ const Navigation = () => {
             slug: '/projects',
         },
     ]
-
-    console.log(width)
 
     return (
         <>

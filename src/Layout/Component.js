@@ -7,8 +7,6 @@ import { Navigation } from '../components'
 const StyledWrapper = styled.main``
 
 const LayoutComponent = ({ setThemeMode, children }) => {
-    console.log(setThemeMode)
-
     return (
         <>
             <Navigation />
