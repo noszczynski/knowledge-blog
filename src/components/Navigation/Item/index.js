@@ -3,9 +3,13 @@ import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
 
 const StyledWrapper = styled.div`
-    display: block;
+    display: none;
     grid-column: span 1;
     padding-top: 1.25rem;
+
+    ${({ theme }) => theme.mq.tabletM} {
+        display: block;
+    }
 `
 
 const link = css`
@@ -38,9 +42,9 @@ const StyledButton = styled.a`
     ${link}
 `
 
-const NavigationItem = ({ label, slug, isMail }) => {
+const NavigationItem = ({ label, slug, isMail, isMobile }) => {
     return (
-        <StyledWrapper>
+        <StyledWrapper isMobile={isMobile}>
             {isMail ? (
                 <StyledButton href={slug}>{label}</StyledButton>
             ) : (

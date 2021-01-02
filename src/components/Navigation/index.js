@@ -41,6 +41,10 @@ const StyledNavigation = styled.div`
     opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
     color: ${({ theme }) => theme.color.primary};
     pointer-events: ${({ isOpen }) => (isOpen ? 'all' : 'none')};
+
+    ${({ theme }) => theme.mq.tabletM} {
+        display: none;
+    }
 `
 
 const StyledMobileNavigation = styled.nav`
@@ -50,6 +54,14 @@ const StyledMobileNavigation = styled.nav`
     justify-content: center;
     height: 100%;
     width: 100%;
+
+    & > div {
+        display: flex !important;
+    }
+
+    ${({ theme }) => theme.mq.tabletM} {
+        display: none;
+    }
 `
 
 const StyledMobileSocial = styled.footer`
@@ -99,30 +111,32 @@ const Navigation = () => {
         },
     ]
 
+    console.log(width)
+
     return (
         <>
             <StyledWrapper>
                 <Logo />
                 <Hamburger isOpen={isOpen} click={toggleOpen} />
-                {width >= 1024 && (
-                    <>
-                        {ITEMS.map(item => (
-                            <NavigationItem key={item.slug} {...item} />
-                        ))}
-                        <NavigationItem
-                            label={'adam.noszczynski@gmail.com'}
-                            slug={'mailto:adam.noszczynski@gmail.com'}
-                            isMail
-                        />
-                    </>
-                )}
+                {ITEMS.map(item => (
+                    <NavigationItem key={item.slug} {...item} />
+                ))}
+                <NavigationItem
+                    label={'adam.noszczynski@gmail.com'}
+                    slug={'mailto:adam.noszczynski@gmail.com'}
+                    isMail
+                />
             </StyledWrapper>
             <StyledNavigation isOpen={isOpen}>
                 <StyledMobileNavigation>
                     {ITEMS.map(item => (
                         <NavigationItem key={item.slug} {...item} />
                     ))}
-                    <NavigationItem label={'Contact'} slug={'/contact'} />
+                    <NavigationItem
+                        label={'Contact'}
+                        slug={'/contact'}
+                        isMobile
+                    />
                 </StyledMobileNavigation>
                 <StyledMobileSocial>
                     <StyledMobileSocialList>

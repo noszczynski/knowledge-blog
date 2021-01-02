@@ -8,6 +8,10 @@ import Hero from './Hero'
 import Story from './Story'
 import Hamburger from './Hamburger'
 import Logo from './Logo'
+import LinkSection from './LinkSection'
+import Link from './Link'
+import Heading from './Typo/Heading'
+import Paragraph from './Typo/Paragraph'
 
 export {
     Image,
@@ -20,4 +24,8 @@ export {
     Story,
     Hamburger,
     Logo,
+    LinkSection,
+    Link,
+    Heading,
+    Paragraph,
 }
