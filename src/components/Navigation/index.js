@@ -108,6 +108,25 @@ const Navigation = () => {
         },
     ]
 
+    const BOTTOM_ITEMS = [
+        {
+            label: 'Github',
+            slug: '/about',
+        },
+        {
+            label: 'Facebook',
+            slug: '/categories',
+        },
+        {
+            label: 'Linkedin',
+            slug: '/projects',
+        },
+        {
+            label: 'E-mail',
+            slug: '/mail',
+        },
+    ]
+
     return (
         <>
             <StyledWrapper>
@@ -135,11 +154,11 @@ const Navigation = () => {
                 </StyledMobileNavigation>
                 <StyledMobileSocial>
                     <StyledMobileSocialList>
-                        <StyledMobileSocialItem>Github</StyledMobileSocialItem>
-                        <StyledMobileSocialItem>
-                            Facebook
-                        </StyledMobileSocialItem>
-                        <StyledMobileSocialItem>Mail</StyledMobileSocialItem>
+                        {BOTTOM_ITEMS.map(({ label, slug }) => (
+                            <StyledMobileSocialItem href={slug} key={slug}>
+                                {label}
+                            </StyledMobileSocialItem>
+                        ))}
                     </StyledMobileSocialList>
                 </StyledMobileSocial>
             </StyledNavigation>

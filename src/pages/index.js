@@ -19,7 +19,7 @@ const IndexPage = ({ data }) => {
         <Layout>
             <SEO title="Home" />
             <Container>
-                <LinkSection label={'link label'} slug={'#'}>
+                <LinkSection label={'link label'} slug={'#'} onStart>
                     <Paragraph>
                         Lorem ipsum dolor sit amet, consectetur.
                     </Paragraph>

@@ -2,7 +2,7 @@ import React from 'react'
 import Global from '../utils/globalStyle'
 import Container from './Container'
 import styled from 'styled-components'
-import { Navigation } from '../components'
+import { Footer, Navigation } from '../components'
 
 const StyledWrapper = styled.main``
 
@@ -16,6 +16,7 @@ const LayoutComponent = ({ setThemeMode, children }) => {
                     {children}
                 </StyledWrapper>
             </Container>
+            <Footer />
         </>
     )
 }

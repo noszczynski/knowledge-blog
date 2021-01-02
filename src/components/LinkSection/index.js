@@ -14,17 +14,23 @@ const StyledWrapper = styled.section`
 `
 
 const StyledLinkWrapper = styled.div`
-    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    width: 100%;
+    justify-content: ${({ onStart }) => (onStart ? 'flex-start' : 'flex-end')};
     align-items: center;
+
+    ${({ theme }) => theme.mq.tabletM} {
+        width: 50%;
+        justify-content: flex-start;
+        margin-left: ${({ onStart }) => (onStart ? '0' : 'auto')};
+    }
 `
 
-const LinkSection = ({ label, slug, children }) => {
+const LinkSection = ({ label, slug, onStart, children }) => {
     return (
         <StyledWrapper>
             {children}
-            <StyledLinkWrapper>
+            <StyledLinkWrapper onStart={onStart}>
                 <Link slug={slug}>{label}</Link>
             </StyledLinkWrapper>
         </StyledWrapper>
@@ -34,12 +40,14 @@ const LinkSection = ({ label, slug, children }) => {
 LinkSection.propTypes = {
     label: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
+    onStart: PropTypes.bool,
     children: PropTypes.node,
 }
 
 LinkSection.defaultProps = {
     label: '',
     slug: '#',
+    onStart: false,
 }
 
 export default LinkSection
