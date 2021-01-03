@@ -16,6 +16,8 @@ const lightThemeColors = {
     backgroundAccent: '',
 }
 
-const colors = {}
+const colors = {
+    ...darkThemeColors,
+}
 
 export { colors, lightThemeColors, darkThemeColors }

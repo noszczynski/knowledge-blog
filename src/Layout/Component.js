@@ -6,7 +6,7 @@ import { Footer, Navigation } from '../components'
 
 const StyledWrapper = styled.main``
 
-const LayoutComponent = ({ setThemeMode, children }) => {
+const LayoutComponent = ({ children }) => {
     return (
         <>
             <Navigation />
