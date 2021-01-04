@@ -12,6 +12,8 @@ import LinkSection from './LinkSection'
 import Link from './Link'
 import Heading from './Typo/Heading'
 import Paragraph from './Typo/Paragraph'
+import Card from './Card'
+import Cards from './Cards'
 import LogoSVG from './Logo/logo'
 
 export {
@@ -29,5 +31,7 @@ export {
     Link,
     Heading,
     Paragraph,
+    Card,
+    Cards,
     LogoSVG,
 }
