@@ -11,6 +11,10 @@ const StyledWrapper = styled.section`
     margin: 0 auto;
     max-width: 90rem;
     width: 100%;
+
+    ${({ theme }) => theme.mq.laptopS} {
+        padding-top: 8rem;
+    }
 `
 
 const StyledLinkWrapper = styled.div`

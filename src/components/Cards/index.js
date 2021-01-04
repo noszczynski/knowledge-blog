@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Card, Paragraph } from '../index'
+import { getLanguageItems } from '../../utils/utils'
 
 const StyledWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    ${({ theme }) => theme.mq.tabletM} {
+    ${({ theme }) => theme.mq.tabletS} {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 2rem;
@@ -24,11 +25,16 @@ const StyledColumn = styled.div`
 `
 
 const Cards = ({ cards }) => {
-    return cards && cards.length ? (
+    const filteredCards = getLanguageItems(cards, 'pl')
+
+    console.log(cards)
+    console.log(filteredCards)
+
+    return filteredCards && filteredCards.length ? (
         <StyledWrapper>
             <StyledColumn>
-                {cards &&
-                    cards.map(
+                {filteredCards &&
+                    filteredCards.map(
                         (card, idx) =>
                             idx % 2 === 0 && (
                                 <Card
@@ -39,12 +45,16 @@ const Cards = ({ cards }) => {
                     )}
             </StyledColumn>
             <StyledColumn>
-                {cards.map(
-                    (card, idx) =>
-                        idx % 2 !== 0 && (
-                            <Card key={card.title + card.locale} {...card} />
-                        )
-                )}
+                {filteredCards &&
+                    filteredCards.map(
+                        (card, idx) =>
+                            idx % 2 !== 0 && (
+                                <Card
+                                    key={card.title + card.locale}
+                                    {...card}
+                                />
+                            )
+                    )}
             </StyledColumn>
         </StyledWrapper>
     ) : (

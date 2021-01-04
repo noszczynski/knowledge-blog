@@ -1,21 +1,72 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Heading, Image, Paragraph } from '../index'
+import { Link } from 'gatsby'
 
-const StyledWrapper = styled.div``
-const StyledImageWrapper = styled.div``
-const StyledContent = styled.div``
+const StyledWrapper = styled(Link)`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+    text-decoration: none;
 
-const Card = ({ title, cover, description, locale }) => {
+    ${({ theme }) => theme.mq.tabletS} {
+        margin-bottom: 6rem;
+    }
+
+    :hover {
+        transform: translateY(-2rem) translateZ(0);
+    }
+`
+
+const StyledImageWrapper = styled.div`
+    width: 100%;
+    height: 60vw;
+    margin-bottom: 2rem;
+    overflow: hidden;
+
+    & > div {
+        height: 100%;
+        transition: transform 0.3s ease;
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    ${({ theme }) => theme.mq.tabletS} {
+        height: 40vw;
+    }
+
+    ${({ theme }) => theme.mq.desktopS} {
+        height: 20vw;
+    }
+
+    ${StyledWrapper}:hover & {
+        & > div {
+            transform: scale(1.2);
+        }
+    }
+`
+
+const StyledContent = styled.div`
+    p {
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: calc(1em + 0.5rem);
+    }
+`
+
+const Card = ({ title, cover, description, slug }) => {
     return (
-        <StyledWrapper>
+        <StyledWrapper to={`/${slug}`}>
             <StyledImageWrapper>
                 <Image fluid={cover.fluid} />
             </StyledImageWrapper>
             <StyledContent>
-                <Heading variant={'h3'}>
-                    {title} {locale}
-                </Heading>
+                <Heading variant={'h3'}>{title}</Heading>
                 <Paragraph>{description}</Paragraph>
             </StyledContent>
         </StyledWrapper>

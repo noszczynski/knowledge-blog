@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Hamburger, Logo, NavigationItem } from '../index'
-import { useWindow } from '../../utils/windowContext'
+import Container from '../../Layout/Container'
 
 const StyledWrapper = styled.nav`
     display: grid;
@@ -9,12 +9,10 @@ const StyledWrapper = styled.nav`
     grid-column-gap: 1rem;
     grid-template-columns: repeat(8, 1fr);
     margin: 0 auto;
-    padding: 1.5rem 1rem 0;
+    padding-top: 1.5rem;
     align-items: start;
     position: relative;
     z-index: 100;
-    width: 100vw;
-    max-width: 90rem;
 
     ${({ theme }) => theme.mq.tabletS} {
         grid-column-gap: 1.5rem;
@@ -128,7 +126,7 @@ const Navigation = () => {
     ]
 
     return (
-        <>
+        <Container>
             <StyledWrapper>
                 <Logo />
                 <Hamburger isOpen={isOpen} click={toggleOpen} />
@@ -162,7 +160,7 @@ const Navigation = () => {
                     </StyledMobileSocialList>
                 </StyledMobileSocial>
             </StyledNavigation>
-        </>
+        </Container>
     )
 }
 

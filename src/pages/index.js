@@ -7,7 +7,8 @@ import { getNodes } from '../utils/utils'
 import { Cards, Heading, LinkSection, Paragraph } from '../components'
 import Container from '../Layout/Container'
 
-const IndexPage = ({ data }) => {
+const IndexPage = props => {
+    const { data } = props
     const [posts, setPosts] = useState(null)
     const [cards, setCards] = useState(null)
 
@@ -18,7 +19,7 @@ const IndexPage = ({ data }) => {
         setPosts(postItems)
         setCards(cardItems)
 
-        console.log(posts)
+        console.log(props)
     }, [])
 
     return (
@@ -51,6 +52,7 @@ export const query = graphql`
                     description
                     fullDescription
                     locale
+                    slug
                     cover {
                         url
                         fluid(

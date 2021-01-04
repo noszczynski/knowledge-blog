@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 const Global = createGlobalStyle`
   *, *::after, *::before {
     box-sizing: border-box;
+    transition: transform 0.4s ease, opacity 0.4s ease;
   } 
   
   body {
@@ -19,7 +20,8 @@ const Global = createGlobalStyle`
   }
   
   a {
-    
+    text-decoration: none;
+    color: inherit;
   }
   
   ul, ol {

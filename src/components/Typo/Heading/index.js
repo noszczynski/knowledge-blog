@@ -22,6 +22,11 @@ const StyledH2 = styled.h2`
 
 const StyledH3 = styled.h3`
     ${heading};
+
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: calc(1em + 0.5rem);
+    margin-bottom: 1rem;
 `
 
 const StyledH4 = styled.h4`
