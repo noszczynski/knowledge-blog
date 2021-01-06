@@ -35,23 +35,25 @@ const LinkSection = ({ label, slug, positionStart, children }) => {
     return (
         <StyledWrapper>
             {children}
-            <StyledLinkWrapper positionStart={positionStart}>
-                <Link slug={slug}>{label}</Link>
-            </StyledLinkWrapper>
+            {slug && (
+                <StyledLinkWrapper positionStart={positionStart}>
+                    <Link slug={slug}>{label}</Link>
+                </StyledLinkWrapper>
+            )}
         </StyledWrapper>
     )
 }
 
 LinkSection.propTypes = {
     label: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
+    slug: PropTypes.string,
     positionStart: PropTypes.bool,
     children: PropTypes.node,
 }
 
 LinkSection.defaultProps = {
     label: '',
-    slug: '#',
+    slug: undefined,
     positionStart: false,
 }
 

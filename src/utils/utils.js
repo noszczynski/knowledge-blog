@@ -1,9 +1,9 @@
 import { cloneDeep } from 'lodash'
+import Parser from 'html-react-parser'
 
 const getNodes = (data, field) => {
     if (field) {
-        const items = data[field].edges
-        return items ? items.map(item => ({ ...item.node })) : []
+        return data[field].nodes
     }
 
     return []
@@ -22,4 +22,21 @@ const getUserLanguage = () => {
     return navigator.language
 }
 
-export { getNodes, getLanguageItems, getUserLanguage }
+const truncate = (str = '', n = 0) => {
+    if (str) {
+        if (str.length <= n) {
+            return str
+        }
+
+        const subString = str.substr(0, n - 1)
+        return subString.substr(0, subString.lastIndexOf(' ')) + '&hellip;'
+    }
+
+    return ''
+}
+
+const parseHTML = (text = '') => {
+    return text ? Parser(text) : ''
+}
+
+export { getNodes, getLanguageItems, getUserLanguage, truncate, parseHTML }

@@ -18,6 +18,7 @@ const StyledH1 = styled.h1`
 
 const StyledH2 = styled.h2`
     ${heading};
+    line-height: calc(1em + 0.25rem);
 `
 
 const StyledH3 = styled.h3`
@@ -31,14 +32,19 @@ const StyledH3 = styled.h3`
 
 const StyledH4 = styled.h4`
     ${heading};
+    line-height: calc(1em + 0.75rem);
 `
 
 const StyledH5 = styled.h5`
     ${heading};
+
+    line-height: calc(1em + 0.875rem);
+    color: ${({ theme }) => theme.color.accent};
 `
 
 const StyledH6 = styled.h6`
     ${heading};
+    line-height: calc(1em + 1rem);
 `
 
 const HEADINGS = {

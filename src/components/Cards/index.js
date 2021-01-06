@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Card, Paragraph } from '../index'
-import { getLanguageItems } from '../../utils/utils'
 
 const StyledWrapper = styled.div`
     display: flex;
@@ -25,16 +24,11 @@ const StyledColumn = styled.div`
 `
 
 const Cards = ({ cards }) => {
-    const filteredCards = getLanguageItems(cards, 'pl')
-
-    console.log(cards)
-    console.log(filteredCards)
-
-    return filteredCards && filteredCards.length ? (
+    return cards && cards.length ? (
         <StyledWrapper>
             <StyledColumn>
-                {filteredCards &&
-                    filteredCards.map(
+                {cards &&
+                    cards.map(
                         (card, idx) =>
                             idx % 2 === 0 && (
                                 <Card
@@ -45,8 +39,8 @@ const Cards = ({ cards }) => {
                     )}
             </StyledColumn>
             <StyledColumn>
-                {filteredCards &&
-                    filteredCards.map(
+                {cards &&
+                    cards.map(
                         (card, idx) =>
                             idx % 2 !== 0 && (
                                 <Card

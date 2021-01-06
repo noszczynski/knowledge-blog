@@ -12,8 +12,12 @@ import LinkSection from './LinkSection'
 import Link from './Link'
 import Heading from './Typo/Heading'
 import Paragraph from './Typo/Paragraph'
+import PageHeader from './PageHeader/index.js'
 import Card from './Card'
 import Cards from './Cards'
+import Posts from './Posts'
+import Tile from './Tile'
+import NoImagePlaceholder from './NoImage'
 import LogoSVG from './Logo/logo'
 
 export {
@@ -33,5 +37,9 @@ export {
     Paragraph,
     Card,
     Cards,
+    PageHeader,
+    Posts,
+    Tile,
+    NoImagePlaceholder,
     LogoSVG,
 }

@@ -18,6 +18,7 @@ const lightThemeColors = {
 
 const colors = {
     ...darkThemeColors,
+    noImageColor: '#082D45',
 }
 
 export { colors, lightThemeColors, darkThemeColors }
