@@ -20,27 +20,17 @@ const Posts = ({ items }) => {
         <StyledWrapper>
             {items &&
                 items.length &&
-                items.map(
-                    ({
-                        title,
-                        summary,
-                        cover,
-                        slug,
-                        author,
-                        id,
-                        new: isNew,
-                    }) => (
-                        <Tile
-                            title={title}
-                            content={summary}
-                            cover={cover}
-                            slug={slug}
-                            isNew={isNew}
-                            author={author}
-                            key={id}
-                        />
-                    )
-                )}
+                items.map(({ title, summary, cover, slug, author, id, category, new: isNew }) => (
+                    <Tile
+                        title={title}
+                        content={summary}
+                        cover={cover}
+                        slug={`blog/${category.slug}/${slug}`}
+                        isNew={isNew}
+                        author={author}
+                        key={id}
+                    />
+                ))}
         </StyledWrapper>
     )
 }

@@ -1,66 +1,35 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import Layout from '../Layout'
-import SEO from '../components/Seo'
 import { graphql } from 'gatsby'
-import { getNodes } from '../utils/utils'
-import {
-    Cards,
-    Heading,
-    LinkSection,
-    PageHeader,
-    Paragraph,
-    Posts,
-} from '../components'
-import Container from '../Layout/Container'
+import { Cards, Heading, LinkSection, PageHeader, Paragraph, Posts, Seo } from '../components'
+import { useQuery } from '../hooks/useQuery'
 
-const IndexPage = props => {
-    const { data } = props
-    const [posts, setPosts] = useState(null)
-    const [cards, setCards] = useState(null)
-
-    useEffect(() => {
-        const postItems = getNodes(data, 'allDatoCmsPost')
-        const cardItems = getNodes(data, 'allDatoCmsProject')
-
-        console.log(data)
-        console.log(postItems)
-
-        setPosts(postItems)
-        setCards(cardItems)
-    }, [])
+const IndexPage = ({ data }) => {
+    const [posts] = useQuery(data, 'allDatoCmsPost', 'pl')
+    const [cards] = useQuery(data, 'allDatoCmsProject', 'pl')
 
     return (
         <Layout>
-            <SEO title="Home" />
-            <Container>
-                <LinkSection
-                    label={'link label'}
-                    slug={'/contact'}
-                    positionStart
-                >
-                    <Paragraph>
-                        Lorem ipsum dolor sit amet, consectetur.
-                    </Paragraph>
-                    <Heading variant={'h1'}>
-                        Lorem ipsum dolor sit amet, consectetur.
-                    </Heading>
-                </LinkSection>
-                <LinkSection label={'More projects'} slug={'/projects'}>
-                    <Cards cards={cards} />
-                </LinkSection>
-                <LinkSection label={'More articles'} slug={'/categories'}>
-                    <PageHeader>Latest Posts</PageHeader>
-                    {posts && posts.length && <Posts items={posts} />}
-                </LinkSection>
-            </Container>
+            <Seo title="Home" />
+            <LinkSection label={'link label'} slug={'/contact'} positionStart>
+                <Paragraph>Lorem ipsum dolor sit amet, consectetur.</Paragraph>
+                <Heading variant={'h1'}>Lorem ipsum dolor sit amet, consectetur.</Heading>
+            </LinkSection>
+            <LinkSection label={'More projects'} slug={'/projects'}>
+                <Cards cards={cards} />
+            </LinkSection>
+            <LinkSection label={'More articles'} slug={'/blog'}>
+                <PageHeader>Latest Posts</PageHeader>
+                {posts && posts.length > 0 && <Posts items={posts} />}
+            </LinkSection>
         </Layout>
     )
 }
 
 export const query = graphql`
     query {
-        allDatoCmsProject(filter: { locale: { eq: "pl" } }, limit: 2) {
+        allDatoCmsProject(limit: 4) {
             nodes {
                 title
                 stack
@@ -70,11 +39,8 @@ export const query = graphql`
                 slug
                 cover {
                     url
-                    fluid(
-                        maxWidth: 600
-                        forceBlurhash: false
-                        imgixParams: { auto: "compress" }
-                    ) {
+                    alt
+                    fluid(maxWidth: 600, forceBlurhash: false, imgixParams: { auto: "compress" }) {
                         ...GatsbyDatoCmsFluid
                     }
                 }
@@ -86,10 +52,7 @@ export const query = graphql`
                 }
             }
         }
-        allDatoCmsPost(
-            filter: { new: { eq: true }, locale: { eq: "pl" } }
-            limit: 4
-        ) {
+        allDatoCmsPost(filter: { new: { eq: true } }, limit: 8) {
             nodes {
                 id
                 new
@@ -113,11 +76,7 @@ export const query = graphql`
                 cover {
                     alt
                     url
-                    fluid(
-                        maxWidth: 600
-                        forceBlurhash: false
-                        imgixParams: { auto: "compress" }
-                    ) {
+                    fluid(maxWidth: 600, forceBlurhash: false, imgixParams: { auto: "compress" }) {
                         ...GatsbyDatoCmsFluid
                     }
                 }

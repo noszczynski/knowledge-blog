@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { LogoSVG } from '../index'
+import { Link } from 'gatsby'
 
 const StyledWrapper = styled.div`
     height: 64px;
@@ -9,8 +10,8 @@ const StyledWrapper = styled.div`
     grid-column: 1 / span 3;
 `
 
-const Logo = () => {
-    return <StyledWrapper>{LogoSVG}</StyledWrapper>
+const Logo = ({ isLink }) => {
+    return <StyledWrapper>{isLink ? <Link to={'/'}>{LogoSVG}</Link> : LogoSVG}</StyledWrapper>
 }
 
 export default Logo

@@ -12,6 +12,20 @@ const breakpoints = {
     desktopL: 2560,
 }
 
+const containers = {
+    mobileS: 0,
+    mobileM: 0,
+    mobileL: 578 - 32,
+    tabletS: 768 - 32,
+    tabletM: 1024 - 32,
+    tabletL: 1280 - 64,
+    laptopS: 1280 - 64,
+    laptopL: 1440 - 64,
+    desktopS: 1440 - 64,
+    desktopM: 1920 - 128,
+    desktopL: 1920 - 128,
+}
+
 const mq = {
     mobileS: `@media screen and (min-width: ${breakpoints.mobileS}px)`,
     mobileM: `@media screen and (min-width: ${breakpoints.mobileM}px)`,
@@ -26,4 +40,4 @@ const mq = {
     desktopL: `@media screen and (min-width: ${breakpoints.desktopL}px)`,
 }
 
-export { breakpoints, mq }
+export { breakpoints, mq, containers }

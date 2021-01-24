@@ -12,17 +12,24 @@ import LinkSection from './LinkSection'
 import Link from './Link'
 import Heading from './Typo/Heading'
 import Paragraph from './Typo/Paragraph'
+import Search from './Search/Search'
 import PageHeader from './PageHeader/index.js'
 import Card from './Card'
 import Cards from './Cards'
 import Posts from './Posts'
 import Tile from './Tile'
 import NoImagePlaceholder from './NoImage'
+import Grid from './Containers/Grid'
+import Container from '../Layout/Container'
+import Layout from '../Layout'
+import PostTile from '../templates/Category/PostTile'
+import CategoryTile from './Categories/CategoryTile'
 import LogoSVG from './Logo/logo'
 
 export {
     Image,
     Seo,
+    Layout,
     Navigation,
     NavigationItem,
     Intro,
@@ -41,5 +48,10 @@ export {
     Posts,
     Tile,
     NoImagePlaceholder,
+    Search,
+    Grid,
+    Container,
+    PostTile,
+    CategoryTile,
     LogoSVG,
 }

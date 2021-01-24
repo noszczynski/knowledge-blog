@@ -1,9 +1,16 @@
 import React from 'react'
+import { Heading, Layout, LinkSection, Paragraph, Seo } from '../../components'
 
-const Project = props => {
-    console.log(props)
-
-    return <div>Project works!</div>
+const Project = ({ pageContext }) => {
+    return (
+        <Layout>
+            <Seo title="Home" />
+            <LinkSection slug={'#'}>
+                <Heading variant={'h1'}>{pageContext.title}</Heading>
+                <Paragraph>{pageContext.fullDescription}</Paragraph>
+            </LinkSection>
+        </Layout>
+    )
 }
 
 export default Project

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Hamburger, Logo, NavigationItem } from '../index'
-import Container from '../../Layout/Container'
+import { Container, Hamburger, Logo, NavigationItem } from '../index'
 
 const StyledWrapper = styled.nav`
     display: grid;
@@ -98,7 +97,7 @@ const Navigation = () => {
         },
         {
             label: 'Blog',
-            slug: '/categories',
+            slug: '/blog',
         },
         {
             label: 'Portfolio',
@@ -113,7 +112,7 @@ const Navigation = () => {
         },
         {
             label: 'Facebook',
-            slug: '/categories',
+            slug: '/blog',
         },
         {
             label: 'Linkedin',
@@ -128,27 +127,19 @@ const Navigation = () => {
     return (
         <Container>
             <StyledWrapper>
-                <Logo />
+                <Logo isLink />
                 <Hamburger isOpen={isOpen} click={toggleOpen} />
                 {ITEMS.map(item => (
                     <NavigationItem key={item.slug} {...item} />
                 ))}
-                <NavigationItem
-                    label={'adam.noszczynski@gmail.com'}
-                    slug={'mailto:adam.noszczynski@gmail.com'}
-                    isMail
-                />
+                <NavigationItem label={'adam.noszczynski@gmail.com'} slug={'mailto:adam.noszczynski@gmail.com'} isMail />
             </StyledWrapper>
             <StyledNavigation isOpen={isOpen}>
                 <StyledMobileNavigation>
                     {ITEMS.map(item => (
                         <NavigationItem key={item.slug} {...item} />
                     ))}
-                    <NavigationItem
-                        label={'Contact'}
-                        slug={'/contact'}
-                        isMobile
-                    />
+                    <NavigationItem label={'Contact'} slug={'/contact'} isMobile />
                 </StyledMobileNavigation>
                 <StyledMobileSocial>
                     <StyledMobileSocialList>

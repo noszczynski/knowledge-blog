@@ -20,8 +20,7 @@ const StyledWrapper = styled.section`
 const StyledLinkWrapper = styled.div`
     display: flex;
     width: 100%;
-    justify-content: ${({ positionStart }) =>
-        positionStart ? 'flex-start' : 'flex-end'};
+    justify-content: ${({ positionStart }) => (positionStart ? 'flex-start' : 'flex-end')};
     align-items: center;
 
     ${({ theme }) => theme.mq.tabletM} {
@@ -37,7 +36,7 @@ const LinkSection = ({ label, slug, positionStart, children }) => {
             {children}
             {slug && (
                 <StyledLinkWrapper positionStart={positionStart}>
-                    <Link slug={slug}>{label}</Link>
+                    {label && slug ? <Link slug={slug}>{label}</Link> : null}
                 </StyledLinkWrapper>
             )}
         </StyledWrapper>
