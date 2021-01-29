@@ -26,7 +26,7 @@ const StyledThemeWrapper = styled.div`
     background-color: ${({ themeColor, theme }) => themeColor || theme.color.primary}80;
     position: relative;
     width: 100%;
-    height: 320px;
+    height: 480px;
     overflow: hidden;
     padding: 2rem;
 `

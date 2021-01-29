@@ -20,7 +20,7 @@ const StyledWrapper = styled(Link)`
 
 const StyledImageWrapper = styled.div`
     width: 100%;
-    height: 60vw;
+    height: 30rem;
     margin-bottom: 2rem;
     overflow: hidden;
 
@@ -37,11 +37,7 @@ const StyledImageWrapper = styled.div`
     }
 
     ${({ theme }) => theme.mq.tabletS} {
-        height: 40vw;
-    }
-
-    ${({ theme }) => theme.mq.desktopS} {
-        height: 20vw;
+        height: 40rem;
     }
 
     ${StyledWrapper}:hover & {

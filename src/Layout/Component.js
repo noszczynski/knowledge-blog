@@ -15,8 +15,8 @@ const LayoutComponent = ({ children }) => {
                     <Global />
                     {children}
                 </StyledWrapper>
+                <Footer />
             </Container>
-            <Footer />
         </>
     )
 }

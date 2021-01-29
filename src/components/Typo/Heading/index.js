@@ -11,20 +11,26 @@ const heading = css`
 const StyledH1 = styled.h1`
     ${heading};
 
-    font-size: 5rem;
+    font-size: 3.5rem;
     line-height: calc(1em + 0.125rem);
     font-weight: 700;
+
+    ${({ theme }) => theme.mq.tabletM} {
+        font-size: 5rem;
+    }
 `
 
 const StyledH2 = styled.h2`
     ${heading};
+
+    font-size: 2rem;
     line-height: calc(1em + 0.25rem);
 `
 
 const StyledH3 = styled.h3`
     ${heading};
 
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
     line-height: calc(1em + 0.5rem);
     margin-bottom: 1rem;

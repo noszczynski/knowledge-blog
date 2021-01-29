@@ -158,7 +158,7 @@ exports.createPages = async ({ graphql, actions }) => {
     await posts.forEach(post => {
         if (post.locale === 'pl') {
             createPage({
-                path: `blog/${post.category.slug}${post.slug}`,
+                path: `blog/${post.category.slug}/${post.slug}`,
                 component: postTemplate,
                 context: {
                     ...post,

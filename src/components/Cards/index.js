@@ -7,7 +7,7 @@ const StyledWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    ${({ theme }) => theme.mq.tabletS} {
+    ${({ theme }) => theme.mq.tabletM} {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 2rem;
@@ -27,28 +27,10 @@ const Cards = ({ cards }) => {
     return cards && cards.length ? (
         <StyledWrapper>
             <StyledColumn>
-                {cards &&
-                    cards.map(
-                        (card, idx) =>
-                            idx % 2 === 0 && (
-                                <Card
-                                    key={card.title + card.locale}
-                                    {...card}
-                                />
-                            )
-                    )}
+                {cards && cards.map((card, idx) => idx % 2 === 0 && <Card key={card.title + card.locale} {...card} />)}
             </StyledColumn>
             <StyledColumn>
-                {cards &&
-                    cards.map(
-                        (card, idx) =>
-                            idx % 2 !== 0 && (
-                                <Card
-                                    key={card.title + card.locale}
-                                    {...card}
-                                />
-                            )
-                    )}
+                {cards && cards.map((card, idx) => idx % 2 !== 0 && <Card key={card.title + card.locale} {...card} />)}
             </StyledColumn>
         </StyledWrapper>
     ) : (

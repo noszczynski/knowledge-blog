@@ -12,6 +12,9 @@ import LinkSection from './LinkSection'
 import Link from './Link'
 import Heading from './Typo/Heading'
 import Paragraph from './Typo/Paragraph'
+import GreatParagraph from './Typo/GreatParagraph/GreatParagraph'
+import Distinction from './Typo/Distinction/Distinction'
+import Code from './Typo/Code'
 import Search from './Search/Search'
 import PageHeader from './PageHeader/index.js'
 import Card from './Card'
@@ -21,6 +24,7 @@ import Tile from './Tile'
 import NoImagePlaceholder from './NoImage'
 import Grid from './Containers/Grid'
 import Container from '../Layout/Container'
+import InnerContainer from '../Layout/InnerContainer'
 import Layout from '../Layout'
 import PostTile from '../templates/Category/PostTile'
 import CategoryTile from './Categories/CategoryTile'
@@ -42,6 +46,9 @@ export {
     Link,
     Heading,
     Paragraph,
+    GreatParagraph,
+    Distinction,
+    Code,
     Card,
     Cards,
     PageHeader,
@@ -51,6 +58,7 @@ export {
     Search,
     Grid,
     Container,
+    InnerContainer,
     PostTile,
     CategoryTile,
     LogoSVG,

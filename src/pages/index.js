@@ -2,7 +2,7 @@ import React from 'react'
 
 import Layout from '../Layout'
 import { graphql } from 'gatsby'
-import { Cards, Heading, LinkSection, PageHeader, Paragraph, Posts, Seo } from '../components'
+import { Cards, Heading, LinkSection, PageHeader, GreatParagraph, Posts, Seo, InnerContainer, Distinction } from '../components'
 import { useQuery } from '../hooks/useQuery'
 
 const IndexPage = ({ data }) => {
@@ -12,16 +12,25 @@ const IndexPage = ({ data }) => {
     return (
         <Layout>
             <Seo title="Home" />
-            <LinkSection label={'link label'} slug={'/contact'} positionStart>
-                <Paragraph>Lorem ipsum dolor sit amet, consectetur.</Paragraph>
-                <Heading variant={'h1'}>Lorem ipsum dolor sit amet, consectetur.</Heading>
-            </LinkSection>
+            <InnerContainer>
+                <LinkSection label={'link label'} slug={'/contact'} positionStart>
+                    <GreatParagraph>Lorem ipsum dolor sit amet, consectetur.</GreatParagraph>
+                    <Heading variant={'h1'}>Lorem ipsum dolor sit amet, consectetur.</Heading>
+                </LinkSection>
+            </InnerContainer>
             <LinkSection label={'More projects'} slug={'/projects'}>
                 <Cards cards={cards} />
             </LinkSection>
             <LinkSection label={'More articles'} slug={'/blog'}>
                 <PageHeader>Latest Posts</PageHeader>
                 {posts && posts.length > 0 && <Posts items={posts} />}
+            </LinkSection>
+            <LinkSection>
+                <a href={'mailto:adam.noszczynski@gmail.com'}>
+                    <Heading variant={'h2'}>
+                        <Distinction>adam.noszczynski@gmail.com</Distinction>
+                    </Heading>
+                </a>
             </LinkSection>
         </Layout>
     )

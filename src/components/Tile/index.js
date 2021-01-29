@@ -17,7 +17,7 @@ const StyledWrapper = styled.article`
 
 const StyledImageWrapper = styled.div`
     width: 100%;
-    height: 320px;
+    height: 480px;
     overflow: hidden;
 
     & > div {
@@ -45,18 +45,10 @@ const Tile = ({ title, content, author, slug, cover }) => {
     return (
         <Link to={slug}>
             <StyledWrapper>
-                <StyledImageWrapper>
-                    {cover && cover.fluid ? (
-                        <Image fluid={cover.fluid} />
-                    ) : (
-                        <NoImagePlaceholder />
-                    )}
-                </StyledImageWrapper>
+                <StyledImageWrapper>{cover && cover.fluid ? <Image fluid={cover.fluid} /> : <NoImagePlaceholder />}</StyledImageWrapper>
                 <StyledContent>
-                    {title && <Heading variant={'h4'}>{title}</Heading>}
-                    {author && author.name && (
-                        <Heading variant={'h5'}>{author.name}</Heading>
-                    )}
+                    {title && <Heading variant={'h3'}>{title}</Heading>}
+                    {author && author.name && <Heading variant={'h5'}>{author.name}</Heading>}
                     {content && <Paragraph>{truncate(content, 256)}</Paragraph>}
                 </StyledContent>
             </StyledWrapper>

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledParagraph = styled.p`
-    font-size: 0.85rem;
+    font-size: 1.25rem;
     line-height: calc(1em + 0.5rem);
     font-weight: 500;
     letter-spacing: -0.0125em;
@@ -14,12 +14,12 @@ const StyledParagraph = styled.p`
     }
 
     ${({ theme }) => theme.mq.tabletM} {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 `
 
-const Paragraph = ({ children }) => {
+const GreatParagraph = ({ children }) => {
     return <StyledParagraph>{children}</StyledParagraph>
 }
 
-export default Paragraph
+export default GreatParagraph
