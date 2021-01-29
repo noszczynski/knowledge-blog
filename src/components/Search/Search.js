@@ -53,10 +53,14 @@ const StyledSearch = styled.div`
     align-items: center;
 
     ${({ theme }) => theme.mq.tabletM} {
-        border-bottom-color: ${({ theme, isFocused }) => (isFocused ? theme.color.primary : theme.color.secondary)};
+        border-bottom-color: ${({ theme }) => theme.color.secondary};
         flex-direction: row;
         height: 8rem;
         width: auto;
+
+        :focus {
+            border-bottom-color: ${({ theme }) => theme.color.primary};
+        }
     }
 `
 
@@ -107,7 +111,7 @@ const Search = ({ title, onFilter, field, children }) => {
         <StyledWrapper>
             {title && <Heading variant={'h1'}>{title}</Heading>}
             {children && <Paragraph>{children}</Paragraph>}
-            <StyledSearch isFocused={document.activeElement === (inputRef && inputRef.current)}>
+            <StyledSearch>
                 <StyledSearchInput ref={inputRef} value={value} onChange={handleChange} placeholder={'search...'} />
                 <StyledSearchSubmit onClick={handleClick}>Search</StyledSearchSubmit>
             </StyledSearch>
