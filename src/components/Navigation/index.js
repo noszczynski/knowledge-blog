@@ -92,7 +92,7 @@ const Navigation = () => {
 
     const ITEMS = [
         {
-            label: 'About',
+            label: 'O mnie',
             slug: '/about',
         },
         {
@@ -100,7 +100,7 @@ const Navigation = () => {
             slug: '/blog',
         },
         {
-            label: 'Portfolio',
+            label: 'Projekty',
             slug: '/projects',
         },
     ]

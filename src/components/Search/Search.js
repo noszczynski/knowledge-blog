@@ -1,20 +1,15 @@
 import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Heading, Paragraph } from '../index'
+import { GreatParagraph, Heading, Section } from '../index'
 
-const StyledWrapper = styled.div`
-    padding: 3rem 1rem;
+const StyledWrapper = styled(Section)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 30rem;
     width: 100%;
     max-width: 100%;
-
-    ${({ theme }) => theme.mq.tabletM} {
-        padding: 5rem 3rem;
-    }
 `
 
 const StyledSearchInput = styled.input`
@@ -110,7 +105,7 @@ const Search = ({ title, onFilter, field, children }) => {
     return (
         <StyledWrapper>
             {title && <Heading variant={'h1'}>{title}</Heading>}
-            {children && <Paragraph>{children}</Paragraph>}
+            {children && <GreatParagraph>{children}</GreatParagraph>}
             <StyledSearch>
                 <StyledSearchInput ref={inputRef} value={value} onChange={handleChange} placeholder={'search...'} />
                 <StyledSearchSubmit onClick={handleClick}>Search</StyledSearchSubmit>

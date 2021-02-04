@@ -9,6 +9,8 @@ import Story from './Story'
 import Hamburger from './Hamburger'
 import Logo from './Logo'
 import LinkSection from './LinkSection'
+import Section from './Section'
+import Content from './Content'
 import Link from './Link'
 import Heading from './Typo/Heading'
 import Paragraph from './Typo/Paragraph'
@@ -43,6 +45,7 @@ export {
     Hamburger,
     Logo,
     LinkSection,
+    Section,
     Link,
     Heading,
     Paragraph,
@@ -61,5 +64,6 @@ export {
     InnerContainer,
     PostTile,
     CategoryTile,
+    Content,
     LogoSVG,
 }

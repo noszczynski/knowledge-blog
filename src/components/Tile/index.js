@@ -17,10 +17,10 @@ const StyledWrapper = styled.article`
 
 const StyledImageWrapper = styled.div`
     width: 100%;
-    height: 480px;
     overflow: hidden;
 
     & > div {
+        aspect-ratio: 1 / 1;
         height: 100%;
         width: 100%;
     }

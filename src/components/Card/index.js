@@ -20,11 +20,11 @@ const StyledWrapper = styled(Link)`
 
 const StyledImageWrapper = styled.div`
     width: 100%;
-    height: 30rem;
     margin-bottom: 2rem;
     overflow: hidden;
 
     & > div {
+        aspect-ratio: 1 / 1;
         height: 100%;
         transition: transform 0.3s ease;
     }
@@ -34,10 +34,6 @@ const StyledImageWrapper = styled.div`
         width: 100%;
         object-fit: cover;
         display: block;
-    }
-
-    ${({ theme }) => theme.mq.tabletS} {
-        height: 40rem;
     }
 
     ${StyledWrapper}:hover & {

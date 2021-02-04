@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const StyledParagraph = styled.p`
     font-size: 1.25rem;
     line-height: calc(1em + 0.5rem);
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -0.0125em;
     color: rgb(120, 132, 141);
     overflow: hidden;

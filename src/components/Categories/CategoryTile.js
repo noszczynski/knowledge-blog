@@ -26,9 +26,12 @@ const StyledThemeWrapper = styled.div`
     background-color: ${({ themeColor, theme }) => themeColor || theme.color.primary}80;
     position: relative;
     width: 100%;
-    height: 480px;
+    height: auto;
     overflow: hidden;
     padding: 2rem;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
 `
 
 const StyledIcon = styled.img`
@@ -47,7 +50,7 @@ const StyledNew = styled.i`
     left: 1rem;
     width: 2rem;
     height: 2rem;
-    z-index: 10;
+    z-index: 9;
 `
 
 const StyledParagraph = styled.p`
