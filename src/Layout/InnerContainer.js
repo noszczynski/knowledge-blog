@@ -4,11 +4,10 @@ import styled from 'styled-components'
 
 const StyledWrapper = styled.div`
     width: 100%;
-
-    ${({ theme }) => theme.mq.tabletM} {
-        margin: 0 3rem 0 auto;
-        width: 85%;
-    }
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 const InnerContainer = ({ children }) => {

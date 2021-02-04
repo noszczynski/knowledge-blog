@@ -12,10 +12,8 @@ const Post = ({ pageContext }) => {
                 <InnerContainer>
                     <Heading variant={'h1'}>{pageContext.title}</Heading>
                 </InnerContainer>
-                <InnerContainer>
-                    <Content>{parseHTML(content)}</Content>
-                </InnerContainer>
             </LinkSection>
+            <Content>{parseHTML(content)}</Content>
         </Layout>
     )
 }

@@ -22,6 +22,10 @@ const strongAnimation = keyframes`
 `
 
 const StyledContent = styled.section`
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1024px;
+
     h1,
     h2 {
         font-size: 3rem;
