@@ -2,7 +2,7 @@ import React from 'react'
 
 import Layout from '../Layout'
 import { graphql } from 'gatsby'
-import { Cards, Heading, LinkSection, PageHeader, GreatParagraph, Posts, Seo, InnerContainer, Distinction } from '../components'
+import { Cards, Heading, LinkSection, PageHeader, GreatParagraph, Posts, Seo, InnerContainer, Distinction, Paragraph } from '../components'
 import { useQuery } from '../hooks/useQuery'
 
 const IndexPage = ({ data }) => {
@@ -13,9 +13,16 @@ const IndexPage = ({ data }) => {
         <Layout>
             <Seo title="Home" />
             <InnerContainer>
-                <LinkSection label={'link label'} slug={'/contact'} positionStart>
-                    <GreatParagraph>Lorem ipsum dolor sit amet, consectetur.</GreatParagraph>
-                    <Heading variant={'h1'}>Lorem ipsum dolor sit amet, consectetur.</Heading>
+                <LinkSection label={'Więcej o mnie'} slug={'/about'} positionStart>
+                    <Heading variant={'h1'}>
+                        Cześć ✋🏻
+                        <br />
+                        Mam na imię Adam i jestem programistą Javascript z Krakowa.
+                    </Heading>
+                    <GreatParagraph>
+                        Znajdujesz się na mojej stronie osobistej, którą spokojnie mogę nazwać blogiem
+                        <br />z powodu umieszczenia tutaj mojej bazy wiedzy i doświadczenia w formie postów podzielonych na kategorie.
+                    </GreatParagraph>
                 </LinkSection>
             </InnerContainer>
             <LinkSection label={'Więcej projektów'} slug={'/projekty'}>
