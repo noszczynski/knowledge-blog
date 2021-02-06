@@ -11,9 +11,14 @@ const heading = css`
 const StyledH1 = styled.h1`
     ${heading};
 
-    font-size: 3.5rem;
-    line-height: calc(1em + 0.125rem);
+    font-size: 2rem;
+    line-height: 150%;
     font-weight: 700;
+
+    ${({ theme }) => theme.mq.mobileL} {
+        font-size: 3.5rem;
+        line-height: 120%;
+    }
 
     ${({ theme }) => theme.mq.tabletM} {
         font-size: 5rem;

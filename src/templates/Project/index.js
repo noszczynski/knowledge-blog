@@ -1,6 +1,7 @@
 import React from 'react'
-import { Heading, Layout, LinkSection, Paragraph, Seo } from '../../components'
+import { Content, Heading, Layout, LinkSection, Seo } from '../../components'
 import { graphql } from 'gatsby'
+import { parseHTML } from '../../utils/utils'
 
 const Project = ({ data: { project } }) => {
     return (
@@ -8,7 +9,7 @@ const Project = ({ data: { project } }) => {
             <Seo title="Home" />
             <LinkSection slug={'#'}>
                 <Heading variant={'h1'}>{project.title}</Heading>
-                <Paragraph>{project.fullDescription}</Paragraph>
+                <Content>{parseHTML(project.fullDescription)}</Content>
             </LinkSection>
         </Layout>
     )

@@ -89,13 +89,36 @@ const StyledContent = styled.section`
     pre,
     table,
     ul,
+    ol,
+    img {
+        margin-bottom: 5vw;
+    }
+
+    ul {
+        ul,
+        ol,
+        li p {
+            margin-bottom: 0;
+        }
+    }
+
     ol {
-        margin-bottom: 5rem;
+        ul,
+        ol,
+        li p {
+            margin-bottom: 0;
+        }
     }
 
     pre,
     code {
         font-family: 'JetBrains Mono', monospace;
+    }
+
+    iframe {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9;
     }
 
     img {
@@ -123,10 +146,6 @@ const StyledContent = styled.section`
     ol,
     ul {
         padding-left: 1.75rem;
-
-        li {
-            font-size: 1.75rem;
-        }
     }
 
     table {

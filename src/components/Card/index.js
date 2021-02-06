@@ -24,7 +24,7 @@ const StyledImageWrapper = styled.div`
     overflow: hidden;
 
     & > div {
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 16 / 10;
         height: 100%;
         transition: transform 0.3s ease;
     }
@@ -38,7 +38,7 @@ const StyledImageWrapper = styled.div`
 
     ${StyledWrapper}:hover & {
         & > div {
-            transform: scale(1.2);
+            transform: scale(1.02);
         }
     }
 `
