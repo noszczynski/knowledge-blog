@@ -85,8 +85,8 @@ const Footer = () => {
     const NAVIGATION_ITEMS = [
         { label: 'Home', slug: '/' },
         { label: 'About', slug: '/about' },
-        { label: 'Blog', slug: '/categories' },
-        { label: 'Portfolio', slug: '/projects' },
+        { label: 'Blog', slug: '/blog' },
+        { label: 'Portfolio', slug: '/projekty' },
     ]
 
     return (
@@ -114,9 +114,7 @@ const Footer = () => {
                 </StyledListWrapper>
             </StyledNavigation>
             <StyledRights>
-                <Paragraph>
-                    &copy; {new Date().getFullYear()} Adam Noszczyński
-                </Paragraph>
+                <Paragraph>&copy; {new Date().getFullYear()} Adam Noszczyński</Paragraph>
             </StyledRights>
         </StyledWrapper>
     )

@@ -18,10 +18,10 @@ const IndexPage = ({ data }) => {
                     <Heading variant={'h1'}>Lorem ipsum dolor sit amet, consectetur.</Heading>
                 </LinkSection>
             </InnerContainer>
-            <LinkSection label={'More projects'} slug={'/projects'}>
+            <LinkSection label={'Więcej projektów'} slug={'/projekty'}>
                 <Cards cards={cards} />
             </LinkSection>
-            <LinkSection label={'More articles'} slug={'/blog'}>
+            <LinkSection label={'Więcej artykułów'} slug={'/blog'}>
                 <PageHeader>Latest Posts</PageHeader>
                 {posts && posts.length > 0 && <Posts items={posts} />}
             </LinkSection>

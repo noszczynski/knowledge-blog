@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Container, Hamburger, Logo, NavigationItem } from '../index'
 
@@ -83,13 +83,7 @@ const StyledMobileSocialItem = styled.li`
     color: ${({ theme }) => theme.color.secondary};
 `
 
-const Navigation = () => {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const toggleOpen = () => {
-        setIsOpen(state => !state)
-    }
-
+const Navigation = ({ isOpen, toggleOpen }) => {
     const ITEMS = [
         {
             label: 'O mnie',
@@ -101,7 +95,7 @@ const Navigation = () => {
         },
         {
             label: 'Projekty',
-            slug: '/projects',
+            slug: '/projekty',
         },
     ]
 
@@ -116,7 +110,7 @@ const Navigation = () => {
         },
         {
             label: 'Linkedin',
-            slug: '/projects',
+            slug: '/projekty',
         },
         {
             label: 'E-mail',

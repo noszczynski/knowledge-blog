@@ -51,12 +51,12 @@ const About = () => {
                 <StyledSpaceMD />
                 {ABOUT_CONTENT.map(({ title, items }) => {
                     return (
-                        <>
+                        <div key={title}>
                             <h2>{title}</h2>
                             {items &&
                                 items.map(({ title, stack, liveUrl, liveLabel, codeUrl, codeLabel }) => {
                                     return (
-                                        <>
+                                        <div key={title}>
                                             <h3>{title}</h3>
                                             <br />
                                             <p>
@@ -85,11 +85,11 @@ const About = () => {
                                                 🔥
                                                 <br />
                                             </p>
-                                        </>
+                                        </div>
                                     )
                                 })}
                             <StyledSpaceXL />
-                        </>
+                        </div>
                     )
                 })}
                 <h2>🌱 Obecnie uczę się...</h2>
@@ -144,13 +144,15 @@ const About = () => {
                             Code Sandbox
                         </a>
                     </strong>
-                    <StyledSpaceSM />
+                </p>
+                <p>
                     <strong>Messenger:</strong>
                     <br />
                     <a href={'https://www.messenger.com/t/adam.noszczynski'} rel="noreferrer noopener" target="_blank">
                         https://www.messenger.com/t/adam.noszczynski
                     </a>
-                    <StyledSpaceSM />
+                </p>
+                <p>
                     <strong>E-mail:</strong>
                     <br />
                     <a href={'mailto:adam.noszczynski@gmail.com'} rel="noreferrer noopener" target="_blank">
