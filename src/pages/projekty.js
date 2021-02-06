@@ -10,7 +10,7 @@ const StyledContent = styled(Section)`
     //
 `
 
-const Projects = ({ data }) => {
+const Projekty = ({ data }) => {
     const [cards] = useQuery(data, 'allDatoCmsProject', 'pl')
 
     return (
@@ -55,4 +55,4 @@ export const query = graphql`
     }
 `
 
-export default Projects
+export default Projekty

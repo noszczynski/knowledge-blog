@@ -8,176 +8,67 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const query = await graphql(`
         {
-            allDatoCmsPost {
-                nodes {
-                    content
-                    summary
-                    category {
+            allDatoCmsPost(filter: { locale: { eq: "pl" } }) {
+                edges {
+                    node {
+                        id
                         slug
-                        title
-                        id
-                        description
-                    }
-                    author {
-                        id
-                        name
-                        theme {
-                            hex
-                        }
-                        locale
-                        description
-                    }
-                    id
-                    locale
-                    new
-                    position
-                    slug
-                    title
-                    cover {
-                        url
-                        alt
-                        fluid(maxWidth: 1280, forceBlurhash: false, imgixParams: { auto: "compress" }) {
-                            aspectRatio
-                            src
-                            srcSet
-                            sizes
-                        }
-                    }
-                }
-            }
-            allDatoCmsProject {
-                nodes {
-                    cover {
-                        url
-                        alt
-                        fluid(maxWidth: 1280, forceBlurhash: false, imgixParams: { auto: "compress" }) {
-                            aspectRatio
-                            src
-                            srcSet
-                            sizes
-                        }
-                    }
-                    description
-                    fullDescription
-                    id
-                    locale
-                    position
-                    slug
-                    stack
-                    themePrimary {
-                        hex
-                    }
-                    themeSecondary {
-                        hex
-                    }
-                    title
-                }
-            }
-            allDatoCmsCategory {
-                nodes {
-                    title
-                    slug
-                    theme {
-                        hex
-                    }
-                    position
-                    new
-                    locale
-                    icon {
-                        url
-                        alt
-                        fluid(maxWidth: 600, forceBlurhash: false, imgixParams: { auto: "compress" }) {
-                            aspectRatio
-                            src
-                            srcSet
-                            sizes
-                        }
-                    }
-                    posts {
-                        content
-                        summary
                         category {
                             slug
-                            title
-                            id
-                            description
-                        }
-                        author {
-                            id
-                            name
-                            theme {
-                                hex
-                            }
-                            locale
-                            description
-                        }
-                        id
-                        locale
-                        new
-                        position
-                        slug
-                        title
-                        cover {
-                            url
-                            alt
-                            fluid(maxWidth: 600, forceBlurhash: false, imgixParams: { auto: "compress" }) {
-                                aspectRatio
-                                src
-                                srcSet
-                                sizes
-                            }
                         }
                     }
-                    description
-                    id
+                }
+            }
+            allDatoCmsProject(filter: { locale: { eq: "pl" } }) {
+                edges {
+                    node {
+                        id
+                        slug
+                    }
+                }
+            }
+            allDatoCmsCategory(filter: { locale: { eq: "pl" } }) {
+                edges {
+                    node {
+                        id
+                        slug
+                    }
                 }
             }
         }
     `)
 
-    const { data } = query
-    const {
-        allDatoCmsCategory: { nodes: categories },
-        allDatoCmsPost: { nodes: posts },
-        allDatoCmsProject: { nodes: projects },
-    } = data
+    const categories = query.data.allDatoCmsCategory.edges
+    const posts = query.data.allDatoCmsPost.edges
+    const projects = query.data.allDatoCmsProject.edges
 
-    await projects.forEach(project => {
-        if (project.locale === 'pl') {
-            createPage({
-                path: `projects/${project.slug}`,
-                component: projectTemplate,
-                context: {
-                    ...project,
-                    lang: project.locale,
-                },
-            })
-        }
+    await projects.forEach(({ node }) => {
+        createPage({
+            path: `projekty/${node.slug}`,
+            component: projectTemplate,
+            context: {
+                slug: node.slug,
+            },
+        })
     })
 
-    await posts.forEach(post => {
-        if (post.locale === 'pl') {
-            createPage({
-                path: `blog/${post.category.slug}/${post.slug}`,
-                component: postTemplate,
-                context: {
-                    ...post,
-                    lang: post.locale,
-                },
-            })
-        }
+    await posts.forEach(({ node }) => {
+        createPage({
+            path: `blog/${node.category.slug}/${node.slug}`,
+            component: postTemplate,
+            context: {
+                slug: node.slug,
+            },
+        })
     })
 
-    await categories.forEach(category => {
-        if (category.locale === 'pl') {
-            createPage({
-                path: `blog/${category.slug}`,
-                component: categoryTemplate,
-                context: {
-                    ...category,
-                    lang: category.locale,
-                },
-            })
-        }
+    await categories.forEach(({ node }) => {
+        createPage({
+            path: `blog/${node.slug}`,
+            component: categoryTemplate,
+            context: {
+                slug: node.slug,
+            },
+        })
     })
 }

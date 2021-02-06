@@ -53,7 +53,7 @@ const StyledContent = styled.div`
 
 const Card = ({ title, cover, description, slug }) => {
     return (
-        <StyledWrapper to={`/projects/${slug}`}>
+        <StyledWrapper to={`/projekty/${slug}`}>
             <StyledImageWrapper>
                 <Image fluid={cover.fluid} />
             </StyledImageWrapper>
